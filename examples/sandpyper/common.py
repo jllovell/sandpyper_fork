@@ -630,7 +630,8 @@ def spatial_id(geometry):
     if isinstance(geometry, str):
         geom_str=list(geometry.replace(" ",""))
     else:
-        geom=geometry.to_wkt()
+        #geom=geometry.to_wkt()  #JLL edit: this does not work
+        geom=geometry.wkt  #JLL edit: this works
         geom_str=list(geom.replace(" ",""))
 
     geom_str_rnd=random.Random(42).shuffle(geom_str)
